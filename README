@@ -1,0 +1,41 @@
+blog.phpdba.com
+脚本分享目录
+
+1、monitor_dblocked
+
+shell + sendEmail：监控mysql实例是否有所表情况，有则邮件报警。
+
+2、perl_mysql_replication_monitor
+
+perl + xml： perl脚步读取xml配置文件，连接数据库检查slave是否同步正常、是否延时等，并记录日志。当同步出问题，就邮件报警。
+
+3、Salt-demo
+
+salt 自定义模块 + cherrypy + highcharts 统计服务器mysql实力、tcp状态、cpu数、cpu线程等情况，运维资产统计后台demo。
+
+4、batch_delete_file.sh
+
+通过rsync命令进行海量小文件删除
+
+5、cache_nginx.sh
+
+实现指定目录下，查找某个文件或者子目录，并进行删除操作。
+
+6、chen-123.sh
+
+ 通过规则，匹配数据库实例脚步中密码，自动填充密码。并统计配置参数和数据库实例中参数。
+ 
+7、getSouFun_data.py
+ 
+ 刚检查python时，抓取搜房成交数据的脚步。
+ 
+8、log_archive.sh
+ 
+ 将脚步放在apache日志目录下，默认大于1G的日志压缩，其他按照月份统一压缩。第二版添加了将压缩文件传输到备份机。
+
+9、mysqlMtop
+  mysqlmtop支持分布式部署，在mysqlmtop 2.1版本上修改的。
+  a、应用管理模块添加了应用邮箱，可根据应用等级将相关报警发送到应用邮箱，多个邮箱请用,隔开
+  b、主机管理模块添加了主机别名、机房选项、告警时间段设置
+  c、全局管理添加了报警周期、报警时间设置，该功能暂未测试
+  d、复制监控模块，将不同机房同一个数据库实例master/slave结构展示完成
