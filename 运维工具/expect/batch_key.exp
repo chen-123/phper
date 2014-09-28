@@ -1,0 +1,76 @@
+#!/usr/bin/expect
+set timeout 60
+set target_host 192.168.3.70
+set target_port 22 
+set source_host 117.88.63.112
+set source_port 9191
+set login_name root
+set password www.phpdba.com
+#set ipaddr [lrange $argv 0 0]
+
+spawn ssh $target_host -p $target_port -l $login_name -i /root/chen-123/expect/keyold/id_rsa 
+
+expect {
+	"*(yes/no)?"         {
+		send  "yes\r"
+		exp_continue
+	}
+	"*assword:"      { 
+		send "$password\r"
+	}
+}
+expect "#"
+send "uname\n"
+expect "Linux"
+send_user "Now you can do some operation on this terminal\n"
+expect "#"
+send "cd /root/.ssh\n"
+exec sleep 2
+send "ls \n"
+send "mkdir backup\n"
+expect {
+	"File exists"	{
+			#send "mv -f authorized_keys id_rsa known_hosts ./backup\n"
+			send_user "backup is exist!\n"
+		}
+	"#"	{	
+			send "mv -f authorized_keys id_rsa known_hosts ./backup\n"
+		}
+}
+send "ls \n"
+exec sleep 2
+send "scp -P $source_port root@$source_host:/root/chen-123/expect/key/* ./\n"
+expect {
+	"*(yes/no)?"	{
+		send  "yes\r"
+		exp_continue
+	}
+	"*assword:"	{
+		send "www.phpdba.com\r"
+
+	}
+}
+expect "#"
+send "ll \n"
+exec sleep 2
+expect "#"
+send "chmod og-r id_rsa\n"
+exec sleep 2
+expect "#"
+send "chmod og-r authorized_keys\n";
+exec sleep 2
+expect "#"
+send "ll \n"
+exec sleep 2
+expect "#"
+send_user "\nThis is $source_host!\nkey update success!\nNow you can exit !\n"
+exec sleep 5
+#expect "#"
+#send "ssh -p $source_port $source_host\n"
+#exec sleep 10
+#send "exit\nok\n"
+#interact
+#expect "#"
+#send_user "key Verification ok!\n"
+exit
+

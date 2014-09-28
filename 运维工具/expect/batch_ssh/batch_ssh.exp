@@ -1,0 +1,45 @@
+#!/usr/bin/expect
+set timeout 2
+set target_host [lindex $argv [expr $argc-4]]
+set target_port [lindex $argv [expr $argc-3]]
+set source_host [lindex $argv [expr $argc-2]]
+set source_port [lindex $argv [expr $argc-1]]
+set login_name root
+set password www.phpdba.com
+
+#send_user "target_host:$target_host\n"
+#send_user "target_port:$target_port\n"
+#send_user "source_host:$source_host\n"
+#send_user "source_port:$source_port\n"
+#exit
+spawn ssh $target_host -p $target_port -l $login_name -i /root/chen-123/expect/key/id_rsa 
+
+expect {
+	"*(yes/no)?"         {
+		send  "yes\r"
+		exp_continue
+	}
+	"*assword:"      { 
+		send "$password\r"
+	}
+}
+expect "#"
+send "uname\n"
+expect "Linux"
+send_user "Now you can do some operation on this terminal\n"
+expect "#"
+send "ssh $source_host -p $source_port\n"
+expect {
+        "*(yes/no)?"         {
+                send  "yes\r"
+                exp_continue
+        }
+        "*assword:"      {
+                send "$password\r"
+        }
+}
+expect "#"
+send "exit\n"
+send "exit\n"
+exit
+

