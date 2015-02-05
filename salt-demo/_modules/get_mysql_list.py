@@ -24,18 +24,18 @@ def get_mysql_list():
 				tmp_conf=m.split("=")
 				if(len(tmp_conf[0][2:])<20 and len(tmp_conf)>1):
 					dict_tmp[tmp_conf[0][2:]]=tmp_conf[1]
-		mysql_conn_status,mysql_str=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e 'select version();'|grep -v version")
+		mysql_conn_status,mysql_str=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e 'select version();'|grep -v version")
 		if(mysql_conn_status):
-			mysql_conn_status,mysql_str=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e 'select version();'|grep -v version")
+			mysql_conn_status,mysql_str=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e 'select version();'|grep -v version")
 
 		if( not mysql_conn_status ):
 			dict_tmp['version'] = mysql_str
 		else:
 			dict_tmp['version'] = "null"
 
-		database_status,database_str=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e 'show databases;'|grep -v -E 'Database|information_schema|mysql'")
+		database_status,database_str=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e 'show databases;'|grep -v -E 'Database|information_schema|mysql'")
 		if(database_status):
-			database_status,database_str=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e 'show databases;'|grep -v -E 'Database|information_schema|mysql'")
+			database_status,database_str=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e 'show databases;'|grep -v -E 'Database|information_schema|mysql'")
 
 		if( not database_status):
 			dict_tmp['database'] = database_str.replace("\n",',')
@@ -85,9 +85,9 @@ def grant_mysql_user(sql="select version();"):
                                 if(len(tmp_conf[0][2:])<20 and len(tmp_conf)>1):
                                         dict_tmp[tmp_conf[0][2:]]=tmp_conf[1]
                 if(os.path.isfile('/opt/ci123/mysql/bin/mysql')):
-                        mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e '"+str(sql)+"'")
+                        mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e '"+str(sql)+"'")
                         if(mysql_ret_status):
-                                mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/ci123/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e '"+str(sql)+"'")
+                                mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e '"+str(sql)+"'")
 
                         ret['host'] = host_ip
                         ret['sql'] = sql
