@@ -43,10 +43,10 @@ def System_info():
 	defaultlanguage=salt.grains.core.locale_info()['defaultlanguage']
 
 	insert_sql = 'insert into salt_system_info values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)' % ('"'+str(id)+'"','"'+str(hostname)+'"','"'+str(hostip)+'"','"'+str(cpuinfo)+'"','"'+str(meminfo)+'"','"'+str(saltversion)+'"','"'+str(pythonversion)+'"','"'+str(os)+'"','"'+str(kernelrelease)+'"','"'+str(biosreleasedate)+'"','"'+str(productname)+'"','"'+str(nodename)+'"','"'+str(cpuarch)+'"','"'+str(serialnumber)+'"','"'+str(defaultencoding)+'"','"'+str(defaultlanguage)+'"','"'+str('one')+'"')
-	#tmp=commands.getoutput('/opt/ci123/mysql/bin/mysql -h saltstack.ci123.com -u ci123sa -p"fuyuansalt" -Dsaltstack -e \''+insert_sql+'\'')	
+	#tmp=commands.getoutput('/opt/phpdba/mysql/bin/mysql -h saltstack.phpdba.com -u csa -p"fuyuansalt" -Dsaltstack -e \''+insert_sql+'\'')	
 	return insert_sql
 
-	#conn=MySQLdb.connect(host='saltstack.ci123.com',user='ci123sa',passwd='fuyuansalt',db='saltstack',port=3306,charset='utf8')
+	#conn=MySQLdb.connect(host='saltstack.phpdba.com',user='phpdbasa',passwd='fuyuansalt',db='saltstack',port=3306,charset='utf8')
 	#cursor=conn.cursor()
 	#cursor.execute('insert into salt_system_info values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)' % ('"'+str(hostname)+'"','"'+str(hostip)+'"','"'+str(cpuinfo)+'"','"'+str(meminfo)+'"','"'+str(saltversion)+'"','"'+str(pythonversion)+'"','"'+str(os)+'"','"'+str(kernelrelease)+'"','"'+str(biosreleasedate)+'"','"'+str(productname)+'"','"'+str(nodename)+'"','"'+str(cpuarch)+'"','"'+str(serialnumber)+'"','"'+str(defaultencoding)+'"','"'+str(defaultlanguage)+'"','"'+str('one')+'"'))
 	#conn.commmit()
