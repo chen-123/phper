@@ -84,7 +84,7 @@ def grant_mysql_user(sql="select version();"):
                                 tmp_conf=m.split("=")
                                 if(len(tmp_conf[0][2:])<20 and len(tmp_conf)>1):
                                         dict_tmp[tmp_conf[0][2:]]=tmp_conf[1]
-                if(os.path.isfile('/opt/ci123/mysql/bin/mysql')):
+                if(os.path.isfile('/opt/phpdba/mysql/bin/mysql')):
                         mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'hanfuboyuan0619' -e '"+str(sql)+"'")
                         if(mysql_ret_status):
                                 mysql_ret_status,mysql_ret=commands.getstatusoutput("/opt/phpdba/mysql/bin/mysql -S "+str(dict_tmp['socket'])+" -p'ts@)!@fuyuanci' -e '"+str(sql)+"'")
