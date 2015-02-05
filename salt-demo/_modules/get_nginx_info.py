@@ -17,8 +17,8 @@ def get_nginx_infolist(arg="-V"):
         result = []
 	list = []
 	#host_ip = commands.getoutput("ifconfig | awk -F'addr:|Bcast' '/Bcast/{print $2}'|grep -v '192.168'|head -n 1").strip()
-	if(os.path.isfile('/opt/ci123/nginx/sbin/nginx')):
-        	nginx_ret_status,nginx_ret=commands.getstatusoutput("/opt/ci123/nginx/sbin/nginx "+str(arg))
+	if(os.path.isfile('/opt/phpdba/nginx/sbin/nginx')):
+        	nginx_ret_status,nginx_ret=commands.getstatusoutput("/opt/phpdba/nginx/sbin/nginx "+str(arg))
 		if(not nginx_ret_status):
 			list=nginx_ret.split("\n")
 	for line in list:
