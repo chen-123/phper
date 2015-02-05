@@ -79,8 +79,8 @@ class SaltWebServiceDemo(object):
         <meta charset="utf-8" />
         <title>demo result</title>
         <script type="text/javascript" src="http://webproxy.phpdba.com/js/jquery.min.js"></script>
-        <script type="text/javascript" src="http://file2.ci123.com/noc/js/highcharts.js"></script>
-        <script type="text/javascript" src="http://file2.ci123.com/noc/js/modules/exporting.js"></script>
+        <script type="text/javascript" src="http://file2.phpdba.com/noc/js/highcharts.js"></script>
+        <script type="text/javascript" src="http://file2.phpdba.com/noc/js/modules/exporting.js"></script>
         <script type="text/javascript">
         {container_js}
         </script>
