@@ -17,8 +17,8 @@ def get_apache_vhostlist():
         result = []
 	list = []
 	#host_ip = commands.getoutput("ifconfig | awk -F'addr:|Bcast' '/Bcast/{print $2}'|grep -v '192.168'|head -n 1").strip()
-	if(os.path.isfile('/opt/ci123/apache/bin/apachectl')):
-        	apache_ret_status,apache_ret=commands.getstatusoutput("/opt/ci123/apache/bin/apachectl -t -D DUMP_VHOSTS")
+	if(os.path.isfile('/opt/phpdba/apache/bin/apachectl')):
+        	apache_ret_status,apache_ret=commands.getstatusoutput("/opt/phpdba/apache/bin/apachectl -t -D DUMP_VHOSTS")
 		if(not apache_ret_status):
 			list=apache_ret.split("\n")
 	for line in list:
@@ -42,8 +42,8 @@ def get_apache_infolist(arg="-V"):
         result = []
         list = []
         #host_ip = commands.getoutput("ifconfig | awk -F'addr:|Bcast' '/Bcast/{print $2}'|grep -v '192.168'|head -n 1").strip()
-        if(os.path.isfile('/opt/ci123/apache/bin/apachectl')):
-                apache_ret_status,apache_ret=commands.getstatusoutput("/opt/ci123/apache/bin/apachectl "+str(arg))
+        if(os.path.isfile('/opt/phpdba/apache/bin/apachectl')):
+                apache_ret_status,apache_ret=commands.getstatusoutput("/opt/phpdba/apache/bin/apachectl "+str(arg))
                 if(not apache_ret_status):
                         list=apache_ret.split("\n")
         for line in list:
@@ -64,8 +64,8 @@ def get_apache_logslist(arg="0525"):
         result = []
         list = []
         #host_ip = commands.getoutput("ifconfig | awk -F'addr:|Bcast' '/Bcast/{print $2}'|grep -v '192.168'|head -n 1").strip()
-        if(os.path.isdir('/opt/ci123/apache/logs')):
-                apache_ret_status,apache_ret=commands.getstatusoutput("ls -l /opt/ci123/apache/logs/|sed '1d'|sed '/access/!d'|awk '{print $NF}'|grep '"+str(arg)+"'|awk -F'-' '{print $1}'")
+        if(os.path.isdir('/opt/phpdba/apache/logs')):
+                apache_ret_status,apache_ret=commands.getstatusoutput("ls -l /opt/phpdba/apache/logs/|sed '1d'|sed '/access/!d'|awk '{print $NF}'|grep '"+str(arg)+"'|awk -F'-' '{print $1}'")
                 if(not apache_ret_status):
                         list=apache_ret.split("\n")
         for line in list:
