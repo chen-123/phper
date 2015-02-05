@@ -1,6 +1,6 @@
 #!/user/bin/perl
-# add by chen-123 @ci123 2013
-# xmlÅäÖÃÎÄ¼ş½«ĞèÒª¼à¿ØµÄmasterÓëslaveÁĞ±í£¬Ãû³Æ¡¢µØÖ·¡¢¶Ë¿Ú¡¢ÕÊºÅ¡¢ÃÜÂëÉèÖÃºÃ¡£
+# add by chen-123 @phpdba 2013
+# xmlé…ç½®æ–‡ä»¶å°†éœ€è¦ç›‘æ§çš„masterä¸slaveåˆ—è¡¨ï¼Œåç§°ã€åœ°å€ã€ç«¯å£ã€å¸å·ã€å¯†ç è®¾ç½®å¥½ã€‚
 use warnings;
 use strict;
 use DBI;
