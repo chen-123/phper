@@ -474,11 +474,11 @@ def usage():
         batch_iplist("iplist.txt",'who',"root","/root/.ssh/id_rsa",60,"command.txt",False)
 	### iptable 功能模块
 	1、通过读取iptable_iplist_file.txt文件中ip列表，批量封禁IP
-	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.ci123.com  --iptable_iplist_file=iptable_iplist_file.txt	
+	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.phpdba.com  --iptable_iplist_file=iptable_iplist_file.txt	
 	2、直接通过-s将要封禁IP，传入脚本
-	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.ci123.com  -s 123.123.123.123
+	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.phpdba.com  -s 123.123.123.123
 	3、同时封禁iptable_iplist_file.txt和-s指定IP
-	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.ci123.com  -s 123.123.123.123 --iptable_iplist_file=iptable_iplist_file.txt
+	python2.6 batch_ssh.py -I --iptable_config_ini=iptable_config.ini --sub_domain=www.phpdba.com  -s 123.123.123.123 --iptable_iplist_file=iptable_iplist_file.txt
 
 	### 批量执行命令模块
 	1、以dev 权限登录iplist.txt中ip，同时批量执行command.txt中定义系列命令及command定义命令
