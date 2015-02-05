@@ -151,7 +151,7 @@ class SaltWebServiceDemo(object):
                 text: '状态实时统计图'
             },
             subtitle: {
-                text: 'Source: ci123.com'
+                text: 'Source: phpdba.com'
             },
             xAxis: {
                 categories: [{client_list}],
